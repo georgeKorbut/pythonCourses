@@ -36,9 +36,13 @@ tip_percent = int(input("What percentage tip would you like to give? 10, 12, or 
 num_people = int(input("How many people to split the bill?"))
 
 bill_with_tip = bill_no_tip * (1 + tip_percent / 100)
-bill_per_person = round(bill_with_tip / num_people, 2)
+bill_per_person = bill_with_tip / num_people
 
-print(f"Each person should pay: ${bill_per_person}")
+print("Each person should pay: ${:.2f}"
+    .format(bill_per_person))
 
+# test_format_float = 123.456789
+# print("{:.2f}"
+#     .format(test_format_float))
 
 
