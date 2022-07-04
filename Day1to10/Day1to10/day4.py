@@ -2,12 +2,17 @@
 
 import random
 
-num_choice = int(input("What do you choose? 0 for rock, 1 for paper, and 2 for scissors"))
-
 options = ["rock", "paper", "scissors"]
 
+
+num_choice = int(input("What do you choose? 0 for rock, 1 for paper, and 2 for scissors"))
+
+if num_choice > 2 or num_choice < 0:
+    print("You chose an invalid answer, you lose!")
+    quit()
+
 human_choice = options[num_choice]
-computer_choice = options[random.randint(0,2)]
+computer_choice = options[random.randint(0,2)]    
 
 if human_choice == computer_choice:
     print("Its a draw!")
