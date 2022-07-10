@@ -7,20 +7,31 @@ from re import A
 word_list = ["ardvark", "cyclops", "kraken"]
 
 chosen_word = random.choice(word_list)
-guess_list = ["_"] * len(chosen_word) 
+letter_list = ["_"] * len(chosen_word) 
+guesses_list = []
 
 attempts_remaining = 6
 
-while guess_list.count("_") > 0:
-    if attempts_remaining == 0:
-        print("You lose!")
-        break;
-    guess = input("Guess a letter: ").lower()
-    if guess not in chosen_word:
+game_state = True
+
+while game_state:
+    guess = input("Guess a letter:")
+    if guess in guesses_list:
+        print("You already guessed that letter.")
+        continue
+    elif guess in chosen_word:
+        guesses_list.append(guess)
+        for letter in range(len(chosen_word)):
+            if guess == chosen_word[letter]:
+                letter_list[letter] = guess
+        print(letter_list)
+    else:
+        guesses_list.append(guess)
+        print(f"\'{guess}\' is not in the chosen word. You lose a life")
         attempts_remaining -= 1
-    for letter in range(len(chosen_word)):
-        if chosen_word[letter] == guess:
-            guess_list[letter] = guess
-    print(guess_list)
-    if guess_list.count("_") == 0:
-        print("You win!")
+        if attempts_remaining == 0:
+            game_state = False
+            print("You lose!")
+            continue
+        print(letter_list)
+ 
