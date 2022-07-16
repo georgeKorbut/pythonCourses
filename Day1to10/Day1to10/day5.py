@@ -25,7 +25,7 @@ for nr in range(0, nr_symbols):
 for nr in range(0, nr_numbers):
     combined_list.append(numbers[random.randint(0, len(numbers)-1)])
 
-print(combined_list)
+# print(combined_list)
 
 password = ""
 

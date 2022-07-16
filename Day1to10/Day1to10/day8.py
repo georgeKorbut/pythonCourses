@@ -31,7 +31,7 @@ alphabet = string.ascii_lowercase
 direction = input("Type 'cipher' to use the encoder\n")
 
 if direction != 'cipher':
-    sys.exit("That's not what this program does")
+    sys.exit("That's not what this program does. Exiting")
 
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
