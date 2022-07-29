@@ -1,21 +1,14 @@
-#blackjack project
+#blackjack project (simplified rules)
+# unlimited deck
+# no jokers
+# J/Q/K all count as 10
+# Ace is 11 or 1
+# equal probaability of drawing all cards
+# cards not removed from deck
+
 import random
 
-card_values = {
-    "K": 10,
-    "Q": 10,
-    "J": 10,
-    "10": 10,
-    "9": 9,
-    "8": 8,
-    "7": 7,
-    "6": 6,
-    "5": 5,
-    "4": 4,
-    "3": 3,
-    "2": 2,
-    "A": 11
-}
+cards = [11,2,3,4,5,6,7,8,9,10,10,10,10]
 
 player_hand = []
 dealer_hand = []
@@ -25,23 +18,11 @@ MINIMUM_BET = 5
 
 game_continue = True
 
-#natural == blackjack == ace + face on first deal
-#dealer pays 1.5*pot for naturals
 
 def deal_cards():
-    player_hand.append(random.choice(list(card_values.keys())))
-    player_hand.append(random.choice(list(card_values.keys())))
-    dealer_hand.append(random.choice(list(card_values.keys())))
-    dealer_hand.append(random.choice(list(card_values.keys())))
+
 
 def hit(hand):
-    hand.append(random.choice(list(card_values.keys())))
 
 def determine_value(hand):
-    for card in hand:
-        total_value += card
 
-# deal_cards()
-# print(determine_value(player_hand))
-
-print(card_values.keys())
